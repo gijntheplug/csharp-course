@@ -24,7 +24,16 @@ public sealed class NewsAgencySingleton : ISubject
 
     private NewsAgencySingleton() { } //Costruttore privato per il singleton
 
-    public static NewsAgencySingleton Instance => _instance; //Proprietà per accedere all'istanza singleton
+    public static NewsAgencySingleton Instance //Proprietà per accedere all'istanza singleton
+    {
+        get
+        {
+            if (_instance is null)
+                _instance = new NewsAgencySingleton();
+
+            return _instance;
+        }
+    } 
 
     public string News
     {
